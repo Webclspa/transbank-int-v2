@@ -1,0 +1,4 @@
+Django==4.0
+requests==2.26.0
+transbank-sdk==2.0.1
+whitenoise==5.3.0

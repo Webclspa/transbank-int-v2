@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <div class="tile">
+      
+        
+        <div class="box has-text-centered">
+            
+            
+                
+                <form method="POST" action="{{ response.url }}">
+                  {% csrf_token %}
+                    <h2 class="title titulo">Botón transbank (integración)</h2>
+                    <input type="hidden" name="token_ws" value= "{{ response.token }}" />
+                    <input class="button is-success" type="submit" value="Ir a pagar">
+                                 
+                </form>
+                
+            
+        </div>
+    </div>
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+</body>
+</html>

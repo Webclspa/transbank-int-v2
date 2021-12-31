@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transacción Realizada Exitosamente</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+<body>
+    <div class="tile">   
+        <div class="box has-text-centered">
+            <p class="content titulo"><strong>Estado: {{ response.status}}</strong> Compra exitosa, le enviaremos su producto/servicio a la brevedad</p>
+            {% if token_tbk %}
+                <p><strong>TOKEN_ANULADO: </strong><strong>{{ token_tbk }}</strong></p>
+            {% endif %}
+            
+    
+    </div>
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+</body>
+</html>
