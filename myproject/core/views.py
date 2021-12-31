@@ -27,20 +27,8 @@ def base(request):
     
         token = request.GET.get("token_ws")
         token = response.token
-        print('Hello token before shit: ',token)
-        print(request.GET)
-        token = request.GET.get("TBK_TOKEN")
-        print('new token tbk: ', token)
-        if request.method == "POST":
-            response = Transaction.commit(token)
-            print('morena caxetona:', response) 
-        if request.method == "GET":
-            print(request.GET.get("TBK_TOKEN"))
-            response = Transaction.refund(token, amount)
-            print (response.nullified_amount)
-            print(response)  
-            token = request.GET.get("TBK_TOKEN")
-            print('new token tbk: ', token)
+ 
+   
         
     except TransbankError as e:
         print(e.message)
