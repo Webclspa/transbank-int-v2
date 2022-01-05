@@ -4,20 +4,23 @@ from django.views.decorators.csrf import csrf_exempt
 
 import transbank
 from transbank.webpay import webpay_plus
+from transbank.webpay.webpay_plus import WebpayPlus
 from transbank.webpay.webpay_plus.transaction import Transaction
 from transbank.webpay.webpay_plus.mall_transaction import MallTransaction, MallTransactionCreateDetails
 from transbank.webpay.webpay_plus import IntegrationType
 from transbank.error.transbank_error import TransbankError
 import random
 from django.http import HttpResponseRedirect
+
 @csrf_exempt 
 def base(request):
-       # El SDK apunta por defecto al ambiente de pruebas, no es necesario configurar lo siguiente
     try:
-        # transbank.webpay.webpay_plus.webpay_plus_default_commerce_code = 597055555532
-        # transbank.webpay.webpay_plus.default_api_key = "579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C"
-        # transbank.webpay.webpay_plus.default_integration_type = IntegrationType.TEST
-        
+       #UNCOMMENT FOR PRODUCTION
+        #webpay_plus.WebpayPlus.webpay_plus_default_commerce_code = str("my_commerce_code")
+        #webpay_plus.WebpayPlus.default_api_key = "my_api_key"
+        #webpay_plus.default_integration_type = IntegrationType.LIVE
+        #WebpayPlus.configure_for_production(webpay_plus.WebpayPlus.webpay_plus_default_commerce_code,webpay_plus.WebpayPlus.default_api_key)
+       
         buy_order = str(random.randrange(1000000, 99999999))
         session_id = str(random.randrange(1000000, 99999999))
         amount = random.randrange(100000, 999999)       
